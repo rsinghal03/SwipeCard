@@ -21,6 +21,7 @@ class CardSwipePresenter(private val dataServiceProvider: DataServiceProvider) :
             .observeOn(AndroidSchedulers.mainThread())
             .subscribe { success -> handleSuccess(success) }
             .addTo(compositeDisposable)
+//        Future scope handle error
     }
 
     private fun handleSuccess(success: Response?) {
