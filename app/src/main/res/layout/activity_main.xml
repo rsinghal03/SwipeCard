@@ -10,12 +10,22 @@
         android:id="@+id/swipeFlingAdapterView"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:visibility="gone"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:rotation_degrees="16"
-        android:visibility="gone"/>
+        app:rotation_degrees="16" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/progressCount"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:gravity="center"
+        android:textSize="20sp"
+        android:visibility="gone"
+        tools:text="2/10" />
 
     <include
         layout="@layout/progress_bar"

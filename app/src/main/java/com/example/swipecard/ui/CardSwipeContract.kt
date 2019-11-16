@@ -1,6 +1,5 @@
 package com.example.swipecard.ui
 
-import android.view.View
 import com.example.swipecard.BaseContract
 import com.example.swipecard.data.model.Data
 

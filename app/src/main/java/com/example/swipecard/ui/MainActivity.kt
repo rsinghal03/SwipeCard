@@ -24,6 +24,8 @@ class MainActivity : AppCompatActivity(), CardSwipeContract.View, SwipeFlingAdap
 
     private val mOriginalListOfData: ArrayList<Data> = ArrayList()
 
+    private var originalSizeOfList: Int = 0
+
     private val mNewListOfData: ArrayList<Data> = ArrayList()
 
     private var mPointer = 0
@@ -39,7 +41,10 @@ class MainActivity : AppCompatActivity(), CardSwipeContract.View, SwipeFlingAdap
     override fun showSwipeCard(listOfData: ArrayList<Data>) {
         mOriginalListOfData.addAll(listOfData)
         mNewListOfData.addAll(listOfData)
+        originalSizeOfList = mOriginalListOfData.size
         swipeFlingAdapterView.visible()
+        progressCount.visible()
+        setProgressText(mPointer+1)
         arrayAdapter = ArrayAdapter(this, R.layout.swipe_item, R.id.helloText, mNewListOfData)
         swipeFlingAdapterView.init(this, arrayAdapter)
     }
