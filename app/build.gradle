@@ -58,5 +58,7 @@ dependencies {
     implementation 'com.google.dagger:dagger:2.21'
     kapt 'com.google.dagger:dagger-compiler:2.21'
 
-    implementation 'com.lorentzos.swipecards:library:1.0.9@aar'
+    implementation project(':library')
+
+//    implementation 'com.lorentzos.swipecards:library:1.0.9@aar'
 }

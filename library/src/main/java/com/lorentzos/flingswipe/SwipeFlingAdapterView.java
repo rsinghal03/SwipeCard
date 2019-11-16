@@ -35,6 +35,7 @@ public class SwipeFlingAdapterView extends BaseFlingAdapterView {
     private OnItemClickListener mOnItemClickListener;
     private FlingCardListener flingCardListener;
     private PointF mLastTouchPoint;
+    private int pointerToArrayList = 0;
 
 
     public SwipeFlingAdapterView(Context context) {
@@ -114,7 +115,7 @@ public class SwipeFlingAdapterView extends BaseFlingAdapterView {
             }else{
                 // Reset the UI and set top view listener
                 removeAllViewsInLayout();
-                layoutChildren(0, adapterCount);
+                layoutChildren(0, 1);
                 setTopView();
             }
         }

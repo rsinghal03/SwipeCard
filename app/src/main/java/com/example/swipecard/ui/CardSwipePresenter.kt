@@ -15,6 +15,7 @@ class CardSwipePresenter(private val dataServiceProvider: DataServiceProvider) :
     override var compositeDisposable: CompositeDisposable = CompositeDisposable()
 
     override fun getListOfData() {
+        view?.showLoading()
         dataServiceProvider.getListOfData()
             .subscribeOn(Schedulers.io())
             .observeOn(AndroidSchedulers.mainThread())
@@ -23,6 +24,7 @@ class CardSwipePresenter(private val dataServiceProvider: DataServiceProvider) :
     }
 
     private fun handleSuccess(success: Response?) {
+        view?.hideLoading()
         success?.let { view?.showSwipeCard(it.data as ArrayList<Data>) }
     }
 }
