@@ -1,8 +1,8 @@
 package com.example.swipecard.ui
 
 import com.example.swipecard.data.DataServiceProvider
-import com.example.swipecard.data.DataServiceProviderImpl
 import com.example.swipecard.data.model.Data
+import com.example.swipecard.data.model.Response
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.disposables.CompositeDisposable
 import io.reactivex.rxkotlin.addTo
@@ -22,7 +22,7 @@ class CardSwipePresenter(private val dataServiceProvider: DataServiceProvider) :
             .addTo(compositeDisposable)
     }
 
-    private fun handleSuccess(success: Data?) {
-
+    private fun handleSuccess(success: Response?) {
+        success?.let { view?.showSwipeCard(it.data as ArrayList<Data>) }
     }
 }

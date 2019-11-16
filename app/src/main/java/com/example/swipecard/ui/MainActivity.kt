@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import com.example.swipecard.R
 import com.example.swipecard.SwipeCardApplication
+import com.example.swipecard.data.model.Data
 import com.example.swipecard.extension.gone
 import com.example.swipecard.extension.visible
 import kotlinx.android.synthetic.main.progress_bar.*
@@ -20,6 +21,9 @@ class MainActivity : AppCompatActivity(), CardSwipeContract.View {
         setContentView(R.layout.activity_main)
         presenter.attachView(this)
         presenter.getListOfData()
+    }
+
+    override fun showSwipeCard(listOfData: ArrayList<Data>) {
     }
 
     override fun onDestroy() {
