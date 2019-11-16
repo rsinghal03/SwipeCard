@@ -49,6 +49,59 @@ class MainActivity : AppCompatActivity(), CardSwipeContract.View, SwipeFlingAdap
         swipeFlingAdapterView.init(this, arrayAdapter)
     }
 
+    override fun removeFirstObjectInAdapter() {
+//        mOriginalListOfData.removeAt(0)
+//        arrayAdapter.notifyDataSetChanged()
+    }
+
+    override fun onLeftCardExit(p0: Any?) {
+        if(mPointer > 0){
+            setProgressText(mPointer)
+            mPointer -= 1
+        }
+        setNewListOfData()
+//        Toast.makeText(this, "onLeftPrevious", Toast.LENGTH_SHORT).show()
+
+    }
+
+    override fun onRightCardExit(p0: Any?) {
+        if(mPointer < originalSizeOfList-1){
+            mPointer += 1
+            setProgressText(mPointer+1)
+        }
+        setNewListOfData()
+//        Toast.makeText(this, "onRightNext", Toast.LENGTH_LONG).show()
+
+    }
+
+    override fun onAdapterAboutToEmpty(p0: Int) {
+//        Toast.makeText(this, "aboutTOEmpty", Toast.LENGTH_LONG).show()
+    }
+
+    override fun onScroll(p0: Float) {
+//        Toast.makeText(this, "onScroll", Toast.LENGTH_SHORT).show()
+    }
+
+    override fun onItemClicked(p0: Int, p1: Any?) {
+
+    }
+
+    private fun setProgressText(count: Int) {
+        val progressText = "$count/$originalSizeOfList"
+        progressCount.text = progressText
+    }
+
+    private fun setNewListOfData() {
+        mNewListOfData.clear()
+        var i = mPointer
+        val size = mOriginalListOfData.size
+        while (i < size) {
+            mNewListOfData.add(mOriginalListOfData[i])
+            i++
+        }
+        arrayAdapter.notifyDataSetChanged()
+    }
+
     override fun onDestroy() {
         super.onDestroy()
         presenter.detachView()
