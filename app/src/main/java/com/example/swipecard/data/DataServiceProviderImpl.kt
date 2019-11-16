@@ -5,9 +5,9 @@ import com.example.swipecard.networking.DataRetrofitService
 import com.example.swipecard.networking.RetrofitApiClient
 import io.reactivex.Observable
 
-class DataServiceProviderImpl : DataServiceProvider {
+class DataServiceProviderImpl(private val retrofitApiClient: RetrofitApiClient) : DataServiceProvider {
     override fun getListOfData(): Observable<Data> {
-        val retrofitService = RetrofitApiClient().getRetrofit().create(DataRetrofitService::class.java)
+        val retrofitService = retrofitApiClient.getRetrofit().create(DataRetrofitService::class.java)
         return retrofitService.getListOfData()
     }
 }
