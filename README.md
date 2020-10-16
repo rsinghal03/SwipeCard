@@ -1,6 +1,6 @@
 # SwipeCard
 
-Demo gif show swipeable card view which contain text
+Demo gif show Tinder like swipeable card which contain text
 
 <a href="https://imgflip.com/gif/3gjxp5"><img src="https://i.imgflip.com/3gjxp5.gif" title="made at imgflip.com"/></a>
 
@@ -24,8 +24,6 @@ The retorfit is used to make the api call while intercepting the response using 
 into standard json format
 
 RxJava is used to manage the network call on background thread and getting the result on main thread.
-
-lorentzos.swipecards library is used for swipe feature and modified as per the requirement.
 
 Jackson is used for deserialization.
 
