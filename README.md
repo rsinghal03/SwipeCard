@@ -15,8 +15,6 @@ Libraries used are:
 3. Retrofit
 4. Jackson
 5. Mockito
-6. lorentzos.swipecards
-
 
 Dagger is used for dependency injection
 
